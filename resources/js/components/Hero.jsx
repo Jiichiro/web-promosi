@@ -1,44 +1,116 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
-import { Gamepad2, Landmark, ReceiptText, Wallet2 } from 'lucide-react';
+import { FileText, Film, Gamepad2, Landmark, ReceiptText, Wallet2 } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { FormatRupiah } from "@arismun/format-rupiah";
 
-const Hero = ({isLogin, user}) => {
-    const [activeIndex, setActiveIndex] = useState(0);
-    
+const Hero = ({ isLogin, user }) => {
+    const [activeIndex, setActiveIndex] = useState(3);
+
     function MoneyChanger() {
-        return  (
+        return (
             <>
-                <p>Melkukan Konversi ke/dari mata uang asing. kami mendukung mata uang berikut:</p>
-                <ul className="relative list-disc left-4">
+                <motion.p
+                    key={content[activeIndex].description}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    Melkukan Konversi ke/dari mata uang asing. kami mendukung mata uang berikut:
+                </motion.p>
+                <motion.ul
+                    className="relative list-disc left-4"
+                    key={content[activeIndex].description}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
                     <li>USD</li>
                     <li>IDR</li>
                     <li>MYR</li>
-                </ul>
+                </motion.ul>
             </>
         )
     }
     function Ewallet() {
-        return  (
+        return (
             <>
-                <p>Kami melayani topup Ewallet berupa:</p>
-                <ul className="relative list-disc left-4">
+                <motion.p
+                    key={content[activeIndex].description}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    Kami melayani topup Ewallet berupa:
+                </motion.p>
+                <motion.ul
+                    className="relative list-disc left-4"
+                    key={content[activeIndex].description}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
                     <li>GoPay</li>
                     <li>Dana</li>
                     <li>ShoopePay</li>
                     <li>LinkAja</li>
                     <li>OVO</li>
-                </ul>
+                </motion.ul>
             </>
         )
     }
     function Games() {
-        return  (
+        return (
             <>
-                <p>Selain E-Wallet, kami juga melayani topup game melalui mata uang store tersebut. seperti:</p>
-                <ul className="relative list-disc left-4">
+                <motion.p
+                    key={content[activeIndex].description}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    Selain E-Wallet, kami juga melayani topup game melalui mata uang store tersebut. seperti:
+                </motion.p>
+                <motion.ul
+                    className="relative list-disc left-4"
+                    key={content[activeIndex].description}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
                     <li>Voucher Google Play</li>
                     <li>Steam Wallet</li>
-                </ul>
+                </motion.ul>
+            </>
+        )
+    }
+    function Documents() {
+        return (
+            <>
+                <motion.p
+                    key={content[activeIndex].description}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    Bgai anda
+                </motion.p>
+                <motion.table className="border border-solid border-2 border-gray-600 w-full">
+                    <tr className="mx-6 border border-solid border-gray-600">
+                        <th className="font-bold border border-solid border-gray-600 p-2">Baru</th>
+                        <th className="font-bold border border-solid border-gray-600 p-2">Edit</th>
+                    </tr>
+                    <tr>
+                        <td className="border border-solid border-gray-600 p-2 text-center"><FormatRupiah value={500}/> - <FormatRupiah value={5000}/></td>
+                        <td className="border border-solid border-gray-600 p-2 text-center"><FormatRupiah value={500}/> - <FormatRupiah value={5000}/></td>
+                    </tr>
+                </motion.table>
             </>
         )
     }
@@ -47,36 +119,41 @@ const Hero = ({isLogin, user}) => {
         {
             icon: <Landmark className="w-8 h-8" />,
             title: "Convert Mata Uang",
-            description: <MoneyChanger/>
+            description: <MoneyChanger />
         },
         {
             icon: <Wallet2 className="w-8 h-8" />,
             title: "Top up E-Wallet",
-            description: <Ewallet/>
+            description: <Ewallet />
         },
         {
             icon: <Gamepad2 className="w-8 h-8" />,
             title: "Top up Games",
-            description: "Air freight services providing fast and reliable global air cargo solutions."
+            description: <Games/>
         },
         {
-            icon: <ReceiptText className="w-8 h-8" />,
-            title: "Bayar Tagihan",
+            icon: <FileText className="w-8 h-8" />,
+            title: "Edit/Buat Dokumen",
+            description: <Documents/>
+        },
+        {
+            icon: <Film className="w-8 h-8" />,
+            title: "Edit/Buat Video $ foto",
             description: "Air freight services providing fast and reliable global air cargo solutions."
         },
     ];
 
     return (
-        <div className=" relativew-full px-4 pb-8 bg-gray-900 text-white">
-            <Navbar login={isLogin} user={user}/>
+        <div className=" relativew-full px-4 pb-8 bg-gray-300 dark:bg-gray-900 text-black dark:text-white">
+            <Navbar login={isLogin} user={user} />
             <main className="text-center mt-16 mb-[8rem]">
                 <h1 className="text-5xl font-bold">
                     Penuhi Kebutuhan <span className='text-blue-800'>Digital</span> Anda
                 </h1>
-                <p className="text-gray-400 mt-4">
+                <p className="text-gray-900 dark:text-gray-400 mt-4">
                     Kami akan membantu anda untuk memenuhi kebutuhkan anda didunia digital
                 </p>
-                <button onClick={() => document.location.href='https://t.me/QuicsX'} className="mt-8 bg-transparent border border-yellow-600 text-yellow-600 px-6 py-2 rounded">
+                <button onClick={() => document.location.href = 'https://t.me/QuicsX'} className="mt-8 bg-transparent border border-yellow-600 text-yellow-600 px-6 py-2 rounded">
                     Lihat di telegram kami
                 </button>
             </main>
@@ -106,40 +183,22 @@ const Hero = ({isLogin, user}) => {
 
                 {/* Content Section for Active Menu */}
                 <div className="bg-white mt-4 p-6 rounded-lg shadow-lg h-80">
-                    <h3 className="text-xl font-bold text-blue-900 mb-3">
+                    {/* Animasi untuk judul */}
+                    <motion.h3
+                        className="text-xl font-bold text-blue-900 mb-3"
+                        key={content[activeIndex].title}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
                         {content[activeIndex].title}
-                    </h3>
+                    </motion.h3>
                     <div className="text-gray-600">
                         {content[activeIndex].description}
                     </div>
                 </div>
             </div>
-            {/* <section className="bg-gray-50 pt-32 pb-20">
-                <div className="max-w-6xl mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center text-blue-900 mb-12">
-                        Why Choose Us?
-                    </h2>
-                    <div className="flex justify-center items-center gap-8">
-                        <div className="text-center">
-                            <div className={`w-3 h-3 rounded-full mx-auto transition-colors duration-300
-                ${activeIndex === 0 ? 'bg-blue-600' : 'bg-gray-300'}`}></div>
-                            <p className="mt-2 text-sm text-gray-600">In-Topic<br />Expertise</p>
-                        </div>
-                        <div className="flex-1 h-px bg-gray-300"></div>
-                        <div className="text-center">
-                            <div className={`w-3 h-3 rounded-full mx-auto transition-colors duration-300
-                ${activeIndex === 2 ? 'bg-blue-600' : 'bg-gray-300'}`}></div>
-                            <p className="mt-2 text-sm text-gray-600">Trustworthy &<br />Leadership</p>
-                        </div>
-                        <div className="flex-1 h-px bg-gray-300"></div>
-                        <div className="text-center">
-                            <div className={`w-3 h-3 rounded-full mx-auto transition-colors duration-300
-                ${activeIndex === 4 ? 'bg-blue-600' : 'bg-gray-300'}`}></div>
-                            <p className="mt-2 text-sm text-gray-600">Commitment &<br />Timing</p>
-                        </div>
-                    </div>
-                </div>
-            </section> */}
         </div>
     );
 };
