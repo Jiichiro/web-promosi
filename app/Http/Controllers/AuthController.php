@@ -14,10 +14,12 @@ class AuthController extends Controller
      */
     public function login()
     {
+        if (Auth::check()) return Redirect::back();
         return inertia('auth/Login');
     }
 
     public function register() {
+        if (Auth::check()) return Redirect::back();
         return inertia('auth/Register');
     }
 
@@ -32,7 +34,7 @@ class AuthController extends Controller
             return redirect()->intended('/');
         }
 
-        return redirect('/login')->withErrors(['error'=>'email atau password tidak benar']);
+        return Redirect::back()->withErrors(['error'=>'email atau password tidak benar']);
     }
 
     public function store(Request $request) {
@@ -53,6 +55,6 @@ class AuthController extends Controller
 
     public function logout() {
         Auth::logout();
-        return redirect('/');
+        return Redirect::back();
     }
 }

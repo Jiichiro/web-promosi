@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { FormatRupiah } from "@arismun/format-rupiah";
 
 const Hero = ({ isLogin, user }) => {
-    const [activeIndex, setActiveIndex] = useState(3);
+    const [activeIndex, setActiveIndex] = useState(0);
 
     function MoneyChanger() {
         return (
@@ -99,21 +99,59 @@ const Hero = ({ isLogin, user }) => {
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    Bgai anda
+                    Bagi anda yang kesulitan dalam membuat atau merapihkan dokumen, kami dapat membantu anda! hanya dengan memberitahu seperti apa keinginan anda, maka anda cukup menunggu dan akmi akan mengerjakan sesuai deadline yang diberikan
                 </motion.p>
-                <motion.table className="border border-solid border-2 border-gray-600 w-full">
+                <motion.table
+                    key={content[activeIndex].description}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="border-solid border-2 border-gray-600 w-full">
                     <tr className="mx-6 border border-solid border-gray-600">
                         <th className="font-bold border border-solid border-gray-600 p-2">Baru</th>
                         <th className="font-bold border border-solid border-gray-600 p-2">Edit</th>
                     </tr>
                     <tr>
-                        <td className="border border-solid border-gray-600 p-2 text-center"><FormatRupiah value={500}/> - <FormatRupiah value={5000}/></td>
-                        <td className="border border-solid border-gray-600 p-2 text-center"><FormatRupiah value={500}/> - <FormatRupiah value={5000}/></td>
+                        <td className="border border-solid border-gray-600 p-2 text-center"><FormatRupiah value={500} /> - <FormatRupiah value={5000} />+</td>
+                        <td className="border border-solid border-gray-600 p-2 text-center"><FormatRupiah value={500} /> - <FormatRupiah value={5000} />+</td>
                     </tr>
                 </motion.table>
             </>
         )
     }
+    function FotosVideos() {
+        return (
+            <>
+                <motion.p
+                    key={content[activeIndex].description}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    Bagi anda yang kurang bisa melakukan editing atau hanya sekadar ingin memperbagus dan meperbaiki foto dan video anda
+                </motion.p>
+                <motion.table
+                    key={content[activeIndex].description}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="border-solid border-2 border-gray-600 w-full">
+                    <tr className="mx-6 border border-solid border-gray-600">
+                        <th className="font-bold border border-solid border-gray-600 p-2">Foto</th>
+                        <th className="font-bold border border-solid border-gray-600 p-2">Video</th>
+                    </tr>
+                    <tr>
+                        <td className="border border-solid border-gray-600 p-2 text-center"><FormatRupiah value={5000} /> - <FormatRupiah value={50000} />+</td>
+                        <td className="border border-solid border-gray-600 p-2 text-center"><FormatRupiah value={10000} /> - <FormatRupiah value={100000} />+</td>
+                    </tr>
+                </motion.table>
+            </>
+        )
+    }
+
 
     const content = [
         {
@@ -129,17 +167,17 @@ const Hero = ({ isLogin, user }) => {
         {
             icon: <Gamepad2 className="w-8 h-8" />,
             title: "Top up Games",
-            description: <Games/>
+            description: <Games />
         },
         {
             icon: <FileText className="w-8 h-8" />,
             title: "Edit/Buat Dokumen",
-            description: <Documents/>
+            description: <Documents />
         },
         {
             icon: <Film className="w-8 h-8" />,
             title: "Edit/Buat Video $ foto",
-            description: "Air freight services providing fast and reliable global air cargo solutions."
+            description: <FotosVideos/>
         },
     ];
 
