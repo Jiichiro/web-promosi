@@ -1,6 +1,7 @@
 import { Link } from "@inertiajs/react"
 import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react'
-import Navbar from "../components/Navbar"
+import Navbar from "@/components/Navbar"
+import Footer from '@/components/Footer'
 
 export default function AboutPage({isLogin, user}) {
   return (
@@ -51,57 +52,25 @@ export default function AboutPage({isLogin, user}) {
         </div>
       </section>
 
-      {/* History Timeline */}
-      <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-white text-center mb-12">Perjalanan Kami</h2>
-        <div className="flex justify-center gap-4 mb-12">
-          {[2020, 2021, 2022, 2023].map((year) => (
-            <div
-              key={year}
-              className={`px-6 py-2 rounded-full ${
-                year === 2023
-                  ? "bg-blue-500 text-white"
-                  : "bg-slate-900 text-slate-400"
-              }`}
-            >
-              {year}
-            </div>
-          ))}
-        </div>
-        <div className="bg-slate-900 p-8 rounded-lg">
-          <h3 className="text-2xl font-bold text-white mb-4">2023 - Ekspansi Layanan Digital</h3>
-          <p className="text-slate-400">
-            Tahun ini menandai pencapaian penting dalam perjalanan kami dengan peningkatan 
-            signifikan dalam jangkauan layanan dan kepuasan pelanggan. Kami terus berinovasi 
-            untuk memberikan solusi digital terbaik.
-          </p>
-        </div>
-      </section>
-
       {/* Team Section */}
       <section className="container mx-auto px-4 py-16">
         <h2 className="text-3xl font-bold text-white text-center mb-12">Tim Kami</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="flex flex-row gap-12 justify-center">
           {[
             {
-              name: "Ahmad Rizki",
-              role: "CEO & Founder",
-              image: "/placeholder.svg?height=200&width=200"
+              name: "Devid Nur Faidzin",
+              role: "Founder",
+              image: "/images/depit.png"
             },
             {
-              name: "Sarah Putri",
-              role: "Digital Service Manager",
-              image: "/placeholder.svg?height=200&width=200"
+              name: "Andy Satria Budi Utomo",
+              role: "Founder",
+              image: "/images/andy.png"
             },
             {
-              name: "Budi Santoso",
-              role: "Technical Lead",
-              image: "/placeholder.svg?height=200&width=200"
-            },
-            {
-              name: "Linda Wijaya",
-              role: "Customer Support Head",
-              image: "/placeholder.svg?height=200&width=200"
+              name: "Lendra Dimas Elwando",
+              role: "Founder",
+              image: "/images/dimaz.png"
             }
           ].map((member) => (
             <div key={member.name} className="bg-slate-900 p-6 rounded-lg text-center">
@@ -134,40 +103,7 @@ export default function AboutPage({isLogin, user}) {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-white py-12">
-        <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <h2 className="text-2xl font-bold mb-4">QuicsX</h2>
-            <p className="text-slate-400">banyak pelanggan yang puas dengan layanan kami</p>
-          </div>
-          <div>
-            <h3 className="font-bold mb-4">Resources</h3>
-            <ul className="space-y-2 text-slate-400">
-              <li>Knowledgebase</li>
-              <li>Online Doc</li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-bold mb-4">About us</h3>
-            <ul className="space-y-2 text-slate-400">
-              <li>Knowledgebase</li>
-              <li>Online Doc</li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-bold mb-4">Subscribe to new Newsletter</h3>
-            <p className="text-slate-400 mb-4">What are you waiting for? Subscribe and follow our progress!</p>
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="ID"
-                className="flex-1 px-3 py-2 bg-white rounded-md"
-              />
-              <button className="bg-orange-500 hover:bg-orange-600">Subscribe</button>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   )
 }

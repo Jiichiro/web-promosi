@@ -176,7 +176,7 @@ const Hero = ({ isLogin, user }) => {
         },
         {
             icon: <Film className="w-8 h-8" />,
-            title: "Edit/Buat Video $ foto",
+            title: "Edit/Buat Video & foto",
             description: <FotosVideos/>
         },
     ];
