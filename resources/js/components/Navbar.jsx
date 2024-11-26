@@ -5,8 +5,8 @@ const Navbar = ({login, user}) => {
     
     
     return (
-        <header className="flex justify-between items-center px-4 py-4">
-            <div className="text-2xl font-bold text-black dark:text-white">Quics<span className="text-[#ff5c00]">X</span></div>
+        <header className="bg-gradient-to-b from-blue-950 to-transparent flex justify-between items-center px-4 py-4">
+            <div className="text-2xl font-bold text-white">Quics<span className="text-[#ff5c00]">X</span></div>
             <nav className="space-x-8">
                 <Link href="/" className="text-white">
                     Home

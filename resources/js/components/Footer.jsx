@@ -1,3 +1,5 @@
+import { Link } from "@inertiajs/react";
+import { Send } from "lucide-react";
 import React from "react";
 
 const Footer = () => {
@@ -6,39 +8,33 @@ const Footer = () => {
             <div className="container mx-auto flex justify-between items-start">
                 <div>
                     <h1 className="text-2xl font-bold text-white">
-                        Quics<span className="text-yellow-600">X</span>
+                        Quics<span className="text-[#ff5c00]">X</span>
                     </h1>
                     <p className="mt-2">
                         banyak pelanggan yang puas dengan layanan kami
                     </p>
                     <div className="flex mt-4 space-x-4">
-                        <a href="#" className="text-white">
-                            <i className="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" className="text-white">
-                            <i className="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" className="text-white">
-                            <i className="fab fa-linkedin-in"></i>
-                        </a>
+                        <Link href="#" className="text-white">
+                            <Send />
+                        </Link>
                     </div>
                 </div>
                 <div>
-                    <h2 className="font-bold text-lg">Resources</h2>
+                    <h2 className="font-bold text-lg">Tech Stack</h2>
                     <ul className="mt-2 space-y-2">
                         <li>
-                            <a href="#" className="text-white">
-                                Knowledgebase
+                            <a href="https://laravel.com/" target="_blank" className="text-white">
+                                Laravel
                             </a>
                         </li>
                         <li>
-                            <a href="#" className="text-white">
-                                Online Doc
+                            <a href="https://inertiajs.com/" target="_blank" className="text-white">
+                                Inertia.js
                             </a>
                         </li>
                         <li>
-                            <a href="#" className="text-white">
-                                Redundant
+                            <a href="https://react.dev/" target="_blank" className="text-white">
+                                React.js
                             </a>
                         </li>
                     </ul>
@@ -47,19 +43,14 @@ const Footer = () => {
                     <h2 className="font-bold text-lg">About us</h2>
                     <ul className="mt-2 space-y-2">
                         <li>
-                            <a href="#" className="text-white">
-                                Knowledgebase
-                            </a>
+                            <Link href="/about#description" className="text-white">
+                                deskripsi
+                            </Link>
                         </li>
                         <li>
-                            <a href="#" className="text-white">
-                                Online Doc
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="text-white">
-                                Redundant
-                            </a>
+                            <Link href="/about#team" className="text-white">
+                                Tim Kami
+                            </Link>
                         </li>
                     </ul>
                 </div>

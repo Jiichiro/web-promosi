@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import { FileText, Film, Gamepad2, Landmark, ReceiptText, Wallet2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { FormatRupiah } from "@arismun/format-rupiah";
+import { image } from "framer-motion/client";
 
 const Hero = ({ isLogin, user }) => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -99,24 +100,19 @@ const Hero = ({ isLogin, user }) => {
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    Bagi anda yang kesulitan dalam membuat atau merapihkan dokumen, kami dapat membantu anda! hanya dengan memberitahu seperti apa keinginan anda, maka anda cukup menunggu dan akmi akan mengerjakan sesuai deadline yang diberikan
+                    Bagi anda yang kesulitan dalam membuat atau merapihkan dokumen, kami dapat membantu anda! hanya dengan memberitahu seperti apa keinginan anda, maka anda cukup menunggu dan akmi akan mengerjakan sesuai deadline yang diberikan. kami menerima format dokumen sebagai berikut:
                 </motion.p>
-                <motion.table
+                <motion.ul
+                    className="relative list-disc left-4"
                     key={content[activeIndex].description}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="border-solid border-2 border-gray-600 w-full">
-                    <tr className="mx-6 border border-solid border-gray-600">
-                        <th className="font-bold border border-solid border-gray-600 p-2">Baru</th>
-                        <th className="font-bold border border-solid border-gray-600 p-2">Edit</th>
-                    </tr>
-                    <tr>
-                        <td className="border border-solid border-gray-600 p-2 text-center"><FormatRupiah value={500} /> - <FormatRupiah value={5000} />+</td>
-                        <td className="border border-solid border-gray-600 p-2 text-center"><FormatRupiah value={500} /> - <FormatRupiah value={5000} />+</td>
-                    </tr>
-                </motion.table>
+                >
+                    <li>docx</li>
+                    <li>pdf</li>
+                </motion.ul>
             </>
         )
     }
@@ -130,24 +126,32 @@ const Hero = ({ isLogin, user }) => {
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    Bagi anda yang kurang bisa melakukan editing atau hanya sekadar ingin memperbagus dan meperbaiki foto dan video anda
+                    Bagi anda yang kurang bisa melakukan editing atau hanya sekadar ingin memperbagus dan meperbaiki foto dan video anda. kami menerima format foto dan video sebagai berikut:
                 </motion.p>
-                <motion.table
-                    key={content[activeIndex].description}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="border-solid border-2 border-gray-600 w-full">
-                    <tr className="mx-6 border border-solid border-gray-600">
-                        <th className="font-bold border border-solid border-gray-600 p-2">Foto</th>
-                        <th className="font-bold border border-solid border-gray-600 p-2">Video</th>
-                    </tr>
-                    <tr>
-                        <td className="border border-solid border-gray-600 p-2 text-center"><FormatRupiah value={5000} /> - <FormatRupiah value={50000} />+</td>
-                        <td className="border border-solid border-gray-600 p-2 text-center"><FormatRupiah value={10000} /> - <FormatRupiah value={100000} />+</td>
-                    </tr>
-                </motion.table>
+                <div className="flex flex-row gap-10">
+                    <motion.ul
+                        className="relative list-disc left-4"
+                        key={content[activeIndex].description}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <li>Foto | jpg</li>
+                        <li>Foto | png</li>
+                    </motion.ul>
+                    <motion.ul
+                        className="relative list-disc left-4"
+                        key={content[activeIndex].description}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <li>Video | m4v</li>
+                        <li>Video | mp4</li>
+                    </motion.ul>
+                </div>
             </>
         )
     }
@@ -177,12 +181,12 @@ const Hero = ({ isLogin, user }) => {
         {
             icon: <Film className="w-8 h-8" />,
             title: "Edit/Buat Video & foto",
-            description: <FotosVideos/>
+            description: <FotosVideos />
         },
     ];
 
     return (
-        <div className=" relativew-full px-4 pb-8 bg-gray-300 dark:bg-gray-900 text-black dark:text-white">
+        <div className=" relativew-full bg-gray-300 dark:bg-gray-900 text-black dark:text-white">
             <Navbar login={isLogin} user={user} />
             <main className="text-center mt-16 mb-[8rem]">
                 <h1 className="text-5xl font-bold">
