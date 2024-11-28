@@ -42,8 +42,10 @@ class AuthController extends Controller
             'name'     => "required",
             'email'    => "required",
             'password' => "required",
+            'level'    => "nullable",  
         ]);
         $validation['password'] = password_hash($validation['password'], PASSWORD_BCRYPT);
+        $validation['level'] = 'member';
 
         try {
             User::create($validation);

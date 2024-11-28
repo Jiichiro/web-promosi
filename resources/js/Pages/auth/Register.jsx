@@ -9,7 +9,8 @@ const Register = () => {
   const { setData, post, processing, errors } = useForm({
     name: '',
     email: '',
-    password: ''
+    password: '',
+    level: 'wij635',
   })
 
   function submitHandler(e) {

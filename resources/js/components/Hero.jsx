@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import Navbar from "./Navbar";
 import { FileText, Film, Gamepad2, Landmark, ReceiptText, Wallet2 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { FormatRupiah } from "@arismun/format-rupiah";
-import { image } from "framer-motion/client";
 
 const Hero = ({ isLogin, user }) => {
     const [activeIndex, setActiveIndex] = useState(0);

@@ -44,7 +44,7 @@ const Footer = () => {
                     <ul className="mt-2 space-y-2">
                         <li>
                             <Link href="/about#description" className="text-white">
-                                deskripsi
+                                Deskripsi
                             </Link>
                         </li>
                         <li>
@@ -62,16 +62,6 @@ const Footer = () => {
                         What are you waiting for? Subscribe and follow our
                         progress!
                     </p>
-                    <div className="mt-4 flex">
-                        <input
-                            type="email"
-                            placeholder="email@example.com"
-                            className="p-2 rounded-l-md text-gray-900"
-                        />
-                        <button className="bg-orange-500 text-white p-2 rounded-r-md">
-                            Subscribe now
-                        </button>
-                    </div>
                 </div>
             </div>
             <div className="text-center mt-8">

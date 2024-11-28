@@ -2,8 +2,6 @@ import { Link } from "@inertiajs/react";
 import React from "react";
 
 const Navbar = ({login, user}) => {
-    
-    
     return (
         <header className="bg-gradient-to-b from-blue-950 to-transparent flex justify-between items-center px-4 py-4">
             <div className="text-2xl font-bold text-white">Quics<span className="text-[#ff5c00]">X</span></div>
@@ -14,9 +12,13 @@ const Navbar = ({login, user}) => {
                 <Link href="/about" className="text-white">
                     About us
                 </Link>
+                {user?.level == 'admin' ? 
                 <Link href="/features" className="text-white">
-                    Featured
+                    statistik
                 </Link>
+                :
+                ''
+                }
                 <Link href="/cart" className="text-white">
                     Keranjang
                 </Link>
