@@ -10,9 +10,6 @@ const Footer = () => {
                     <h1 className="text-2xl font-bold text-white">
                         Quics<span className="text-[#ff5c00]">X</span>
                     </h1>
-                    <p className="mt-2">
-                        banyak pelanggan yang puas dengan layanan kami
-                    </p>
                     <div className="flex mt-4 space-x-4">
                         <Link href="#" className="text-white">
                             <Send />
