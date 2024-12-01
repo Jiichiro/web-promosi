@@ -628,6 +628,132 @@ class DatabaseSeeder extends Seeder
                 'quantity' => '1000000',
                 'price' => 1001000,
             ],
+            [
+                'name' => 'googleplay',
+                'category' => 'topup_games',
+                'quantity' => '5000',
+                'price' => 6000,
+            ],
+            [
+                'name' => 'googleplay',
+                'category' => 'topup_games',
+                'quantity' => '10000',
+                'price' => 11000,
+            ],
+            [
+                'name' => 'googleplay',
+                'category' => 'topup_games',
+                'quantity' => '20000',
+                'price' => 21000,
+            ],
+            [
+                'name' => 'googleplay',
+                'category' => 'topup_games',
+                'quantity' => '50000',
+                'price' => 51000,
+            ],
+            [
+                'name' => 'googleplay',
+                'category' => 'topup_games',
+                'quantity' => '100000',
+                'price' => 101000,
+            ],
+            [
+                'name' => 'googleplay',
+                'category' => 'topup_games',
+                'quantity' => '150000',
+                'price' => 151000,
+            ],
+            [
+                'name' => 'googleplay',
+                'category' => 'topup_games',
+                'quantity' => '300000',
+                'price' => 301000,
+            ],
+            [
+                'name' => 'googleplay',
+                'category' => 'topup_games',
+                'quantity' => '300000',
+                'price' => 301000,
+            ],
+            [
+                'name' => 'googleplay',
+                'category' => 'topup_games',
+                'quantity' => '500000',
+                'price' => 501000,
+            ],
+            [
+                'name' => 'googleplay',
+                'category' => 'topup_games',
+                'quantity' => '570000',
+                'price' => 751000,
+            ],
+            [
+                'name' => 'googleplay',
+                'category' => 'topup_games',
+                'quantity' => '1000000',
+                'price' => 1001000,
+            ],
+            [
+                'name' => 'googleplay',
+                'category' => 'topup_games',
+                'quantity' => '1500000',
+                'price' => 1501000,
+            ],
+            [
+                'name' => 'steam',
+                'category' => 'topup_games',
+                'quantity' => 6000,
+                'price' => 7000
+            ],
+            [
+                'name' => 'steam',
+                'category' => 'topup_games',
+                'quantity' => 8000,
+                'price' => 9000
+            ],
+            [
+                'name' => 'steam',
+                'category' => 'topup_games',
+                'quantity' => 12000,
+                'price' => 14000
+            ],
+            [
+                'name' => 'steam',
+                'category' => 'topup_games',
+                'quantity' => 45000,
+                'price' => 48000
+            ],
+            [
+                'name' => 'steam',
+                'category' => 'topup_games',
+                'quantity' => 60000,
+                'price' => 64000
+            ],
+            [
+                'name' => 'steam',
+                'category' => 'topup_games',
+                'quantity' => 90000,
+                'price' => 95000
+            ],
+            [
+                'name' => 'steam',
+                'category' => 'topup_games',
+                'quantity' => 120000,
+                'price' => 127000
+            ],
+            [
+                'name' => 'steam',
+                'category' => 'topup_games',
+                'quantity' => 250000,
+                'price' => 262000
+            ],
+            [
+                'name' => 'steam',
+                'category' => 'topup_games',
+                'quantity' => 400000,
+                'price' => 415000
+            ]
         ];
         foreach ($product as $produk) {
             Product::create($produk);

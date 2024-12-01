@@ -10,19 +10,19 @@ const ProductPage = () => {
           title: "MYR to IDR",
           description: "Ringgit ke Rupiah",
           image: '/images/myridr.png',
-		  link: './myridr'
+          link: './myridr'
         },
         {
           title: "IDR to MYR",
           description: "Rupiah ke Ringgit",
           image: "/images/idrmyr.png",
-		  link: './idrmyr'
+          link: './idrmyr'
         },
         {
           title: "PAYPAL to IDR",
           description: "PayPal ke Rupiah",
           image: "/images/paypalidr.png",
-		  link: './paypalidr'
+          link: './paypalidr'
         },
       ],
     },
@@ -72,13 +72,13 @@ const ProductPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {category.products.map((product, idx) => (
                 <Link
-
+                  href={product.link}
                   key={idx}
                   className="product-card bg-white shadow-md rounded-lg overflow-hidden"
                 >
                   <img
-				  	src={product.image}
-					alt={product.title}
+                    src={product.image}
+                    alt={product.title}
                     className="w-full h-40 object-cover"
                   />
                   <div className="p-4">

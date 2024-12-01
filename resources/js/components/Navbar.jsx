@@ -36,53 +36,62 @@ const Navbar = ({ login, user }) => {
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                 >
-                    <span className="cursor-pointer">Produk</span>
+                    <Link href="/product" className="cursor-pointer">Produk</Link>
                     {isDropdownOpen && (
                         <motion.div
-                            className="absolute -left-72 right-0 mx-auto w-max mt-0 bg-white text-black rounded shadow-lg"
+                            className="absolute -left-96 right-0 mx-auto w-max mt-0 bg-white text-black rounded shadow-lg"
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
                         >
                             <div className="flex">
                                 <div
-                                    className="block px-4 py-2 hover:bg-gray-200 border-r border-gray-300"
+                                    className="block px-4 py-2 border-r border-gray-300"
                                 >
                                     <p className='mx-4'> Convert Mata Uang</p>
                                     <ul className='list-none pr-2 text-sm text-zinc-600'>
-                                        <li><Link href='/product/moneychanger/myridr'>MYR to IDR</Link></li>
-                                        <li>IDR to MYR</li>
-                                        <li>PAYPAL to IDR</li>
+                                        <li><Link href='/product/myridr'>MYR to IDR</Link></li>
+                                        <li><Link href="/product/idrmyr">IDR to MYR</Link></li>
+                                        <li><Link href="/product/paypalidr">PAYPAL to IDR</Link></li>
                                     </ul>
                                 </div>
                                 <div
-                                    className="block px-4 py-2 hover:bg-gray-200"
+                                    className="block px-4 py-2 border-r border-gray-300"
                                 >
                                     <p className='mx-4'> Top Up Ewallet</p>
-                                    <ul className='list-none pr-2'>
-                                        <li>a</li>
-                                        <li>a</li>
-                                        <li>a</li>
-                                        <li>a</li>
+                                    <ul className='list-none pr-2 text-sm text-zinc-600'>
+                                        <li><Link href="/product/gopay">GoPay</Link></li>
+                                        <li><Link href="/product/dana">Dana</Link></li>
+                                        <li><Link href="/product/linkaja">LinkAja</Link></li>
+                                        <li><Link href="/product/ovo">OVO</Link></li>
                                     </ul>
                                 </div>
-                                <div className="border-l border-gray-300 h-8 mx-2"></div>
                                 <div
-                                    className="block px-4 py-2 hover:bg-gray-200"
+                                    className="block px-4 py-2 border-r border-gray-300"
                                 >
-                                    Kategori 3
+                                    <p className='mx-4'> Top Up Games</p>
+                                    <ul className='list-none pr-2 text-sm text-zinc-600'>
+                                        <li><Link href="/product/googleplay">Voucher Google Play</Link></li>
+                                        <li><Link href="/product/steam">Steam Wallet</Link></li>
+                                    </ul>
                                 </div>
-                                <div className="border-l border-gray-300 h-8 mx-2"></div>
                                 <div
-                                    className="block px-4 py-2 hover:bg-gray-200"
+                                    className="block px-4 py-2 border-r border-gray-300"
                                 >
-                                    Kategori 4
+                                    <p className='mx-4'>Edit/buat Dokumen</p>
+                                    <ul className='list-none pr-2 text-sm text-zinc-600'>
+                                        <li><Link href="/product/word">Ms Word</Link></li>
+                                        <li><Link href="/product/pdf">PDF</Link></li>
+                                    </ul>
                                 </div>
-                                <div className="border-l border-gray-300 h-8 mx-2"></div>
                                 <div
-                                    className="block px-4 py-2 hover:bg-gray-200"
+                                    className="block px-4 py-2"
                                 >
-                                    Kategori 5
+                                    <p className='mx-4'>Edit/buat Foto & Video</p>
+                                    <ul className='list-none pr-2 text-sm text-zinc-600'>
+                                        <li><Link href="/product/photo">Foto</Link></li>
+                                        <li><Link href="/product/video">Video</Link></li>
+                                    </ul>
                                 </div>
                             </div>
                         </motion.div>
