@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -12,7 +13,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return inertia('product/view');
+        return inertia('product/view', [
+            'login' => Auth::check(),
+            'user' => Auth::user()
+        ]);
     }
 
     /**
@@ -39,6 +43,8 @@ class ProductController extends Controller
         return inertia('product/detail', [
             'url' => $name,
             'name' => Product::where('name', $name)->get(),
+            'login' => Auth::check(),
+            'user' => Auth::user(),
         ]);
     }
 

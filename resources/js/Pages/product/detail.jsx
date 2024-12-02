@@ -3,9 +3,9 @@ import { Head, Link } from "@inertiajs/react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/slices/cartSlice";
-import Navbar from "../../components/Navbar";
+import Navbar from "@/components/Navbar";
 
-const Detail = ({ url, name }) => {
+const Detail = ({ url, name, login, user }) => {
     const [selectedProduct, setSelectedProduct] = useState({});
     const [selectingProduct, setSelectingProduct] = useState(0);
 
@@ -17,7 +17,7 @@ const Detail = ({ url, name }) => {
                 <title>{url}</title>
             </Head>
             <div className="bg-blue-950 px-8 w-full min-h-screen">
-                <Navbar />
+                <Navbar login={login} user={user} />
                 <h1 className="text-2xl font-semibold text-center text-gray-100">
                     Our Products
                 </h1>
@@ -66,6 +66,7 @@ const Detail = ({ url, name }) => {
                                         <p className="text-2xl font-bold">
                                             <FormatRupiah value={product.price} />
                                         </p>
+                                        <p className=" italic bold text-sm text-gray-600">/ Transaksi</p>
                                     </div>
                                 </div>
                             ))}
