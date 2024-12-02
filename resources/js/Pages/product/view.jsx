@@ -1,5 +1,6 @@
-import { Link } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 import React from "react";
+import Navbar from "../../components/Navbar";
 
 const ProductPage = () => {
   const categories = [
@@ -9,20 +10,37 @@ const ProductPage = () => {
         {
           title: "MYR to IDR",
           description: "Ringgit ke Rupiah",
-          image: '/images/myridr.png',
-          link: './myridr'
+          image: 'myridr.png',
+          link: 'myridr'
         },
         {
           title: "IDR to MYR",
           description: "Rupiah ke Ringgit",
-          image: "/images/idrmyr.png",
-          link: './idrmyr'
+          image: "idrmyr.png",
+          link: 'idrmyr'
         },
         {
           title: "PAYPAL to IDR",
           description: "PayPal ke Rupiah",
-          image: "/images/paypalidr.png",
-          link: './paypalidr'
+          image: "/paypalidr.png",
+          link: 'paypalidr'
+        },
+      ],
+    },
+    {
+      title: "Games",
+      products: [
+        {
+          title: "Voucher Google Play",
+          description: "saldo google play",
+          image: 'googleplay.png',
+          link: 'googleplay'
+        },
+        {
+          title: "Steam Wallet",
+          description: "mata uang steam",
+          image: "steam.png",
+          link: 'steam'
         },
       ],
     },
@@ -31,8 +49,15 @@ const ProductPage = () => {
       products: [
         {
           title: "GoPay",
-          description: "Fast top-up for popular games with great deals.",
-          image: "/images/game-topup.png",
+          description: "Layanan penyimpanan uang oleh GOTO",
+          image: "gopay.png",
+          link: 'gopay'
+        },
+        {
+          title: "dana",
+          description: "Layanan yang banyak digunakan oleh orang karena flesibilitasnya",
+          image: "dana.jpg",
+          link: 'dana'
         },
       ],
     },
@@ -42,7 +67,7 @@ const ProductPage = () => {
         {
           title: "Document Editing",
           description: "Professional Word and PDF file editing services.",
-          image: "/images/document-editing.png",
+          image: "document-editing.png",
         },
       ],
     },
@@ -52,14 +77,19 @@ const ProductPage = () => {
         {
           title: "Photo & Video Editing",
           description: "Professional photo and video editing services.",
-          image: "/images/photo-video-editing.png",
+          image: "photo-video-editing.png",
         },
       ],
     },
   ];
 
   return (
-    <div className="product-page bg-blue-950 py-10">
+    <>
+    <Head>
+      <title>Produk</title>
+    </Head>
+    <div className="product-page bg-blue-950 pb-10">
+      <Navbar />
       <div className="container mx-auto px-4">
         <h1 className="text-4xl font-bold text-center text-blue-600 mb-8">
           Layanan Kami
@@ -72,12 +102,12 @@ const ProductPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {category.products.map((product, idx) => (
                 <Link
-                  href={product.link}
+                  href={`/product/${product.link}`}
                   key={idx}
                   className="product-card bg-white shadow-md rounded-lg overflow-hidden"
                 >
                   <img
-                    src={product.image}
+                    src={`/images/${product.image}`}
                     alt={product.title}
                     className="w-full h-40 object-cover"
                   />
@@ -94,6 +124,7 @@ const ProductPage = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 

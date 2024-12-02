@@ -260,10 +260,11 @@ const Hero = ({ isLogin, user }) => {
                         {content[activeIndex].description}
                     </div>
                     <Link
-                        href={content[activeIndex].detailLink}
+                        // href={content[activeIndex].detailLink}
+                        href="/produk"
                         className="absolute bottom-4 left-4 bg-blue-700 rounded py-2 px-4 text-blue-100 hover:text-blue-700"
                     >
-                        Lihat Harga
+                        Lihat Semua Produk
                     </Link>
                 </div>
             </div>

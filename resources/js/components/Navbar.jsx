@@ -97,9 +97,9 @@ const Navbar = ({ login, user }) => {
                         </motion.div>
                     )}
                 </div>
-                <Link href="/cart" className="text-white">
+                {/* <Link href="/cart" className="text-white">
                     Keranjang
-                </Link>
+                </Link> */}
             </nav>
             <div className="space-x-4">
                 {login ? (
