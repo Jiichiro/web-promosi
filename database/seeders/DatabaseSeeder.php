@@ -769,26 +769,98 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'word',
                 'category' => 'document',
-                'quantity' => 'Daftar Isi',
+                'quantity' => 'Formating',
+                'price' => 10000
+            ],
+            [
+                'name' => 'word',
+                'category' => 'document',
+                'quantity' => 'Cek Pagiarisme',
+                'price' => 5000
+            ],
+            [
+                'name' => 'pdf',
+                'category' => 'document',
+                'quantity' => 'Buat baru',
                 'price' => 3000
             ],
             [
                 'name' => 'pdf',
                 'category' => 'document',
-                'quantity' => 'PDF',
-                'price' => 500
+                'quantity' => 'Daftar Isi',
+                'price' => 5000
+            ],
+            [
+                'name' => 'pdf',
+                'category' => 'document',
+                'quantity' => 'Formating',
+                'price' => 20000
+            ],
+            [
+                'name' => 'pdf',
+                'category' => 'document',
+                'quantity' => 'Cek Pagiarisme',
+                'price' => 2000
             ],
             [
                 'name' => 'photo',
                 'category' => 'foto_video',
-                'quantity' => 'Foto',
+                'quantity' => 'Hapus Background',
+                'price' => 3000
+            ],
+            [
+                'name' => 'photo',
+                'category' => 'foto_video',
+                'quantity' => 'Add Text',
+                'price' => 5000
+            ],
+            [
+                'name' => 'photo',
+                'category' => 'foto_video',
+                'quantity' => 'Color Grading',
+                'price' => 17000
+            ],
+            [
+                'name' => 'photo',
+                'category' => 'foto_video',
+                'quantity' => 'Ganti Background',
+                'price' => 20000
+            ],
+            [
+                'name' => 'video',
+                'category' => 'foto_video',
+                'quantity' => 'Cut And Merge Clip',
                 'price' => 5000
             ],
             [
                 'name' => 'video',
                 'category' => 'foto_video',
-                'quantity' => 'Video',
+                'quantity' => 'Add Text',
                 'price' => 10000
+            ],
+            [
+                'name' => 'video',
+                'category' => 'foto_video',
+                'quantity' => 'Add Music',
+                'price' => 20000
+            ],
+            [
+                'name' => 'video',
+                'category' => 'foto_video',
+                'quantity' => 'Add Transition',
+                'price' => 20000
+            ],
+            [
+                'name' => 'video',
+                'category' => 'foto_video',
+                'quantity' => 'Color Grading',
+                'price' => 30000
+            ],
+            [
+                'name' => 'video',
+                'category' => 'foto_video',
+                'quantity' => 'Add Subtitle',
+                'price' => 50000
             ],
         ];
         foreach ($product as $produk) {

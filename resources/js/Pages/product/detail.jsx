@@ -1,14 +1,14 @@
 import { FormatRupiah } from "@arismun/format-rupiah";
 import { Head, Link } from "@inertiajs/react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../redux/slices/cartSlice";
+// import { useDispatch } from "react-redux";
+// import { addToCart } from "../../redux/slices/cartSlice";
 import Navbar from "@/components/Navbar";
 
 const Detail = ({ url, name, login, user }) => {
     const [selectedProduct, setSelectedProduct] = useState({});
     const [selectingProduct, setSelectingProduct] = useState(0);
-
+    
     // const dispatch = useDispatch();
 
     return (
@@ -66,7 +66,7 @@ const Detail = ({ url, name, login, user }) => {
                                         <p className="text-2xl font-bold">
                                             <FormatRupiah value={product.price} />
                                         </p>
-                                        <p className=" italic bold text-sm text-gray-600">{(url == 'photo' || url == 'video') ? '/ Transakdi' : 'Mulai dari*'}</p>
+                                        <p className=" italic bold text-sm text-gray-600">{(url == 'photo' || url == 'video' || url == 'word' || url == 'pdf') ? 'Mulai Dari*' : '/ Transaksi'}</p>
                                     </div>
                                 </div>
                             ))}
