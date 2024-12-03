@@ -30,7 +30,9 @@ class AuthController extends Controller
 
         if (Auth::attempt($validation)) {
             $request->session()->regenerate();
-            return redirect()->intended('/'); 
+
+            // Redirect ke halaman yang sebelumnya dicoba diakses, atau ke dashboard
+            return redirect()->intended(route('home'));
         }
 
         return Redirect::back()->withErrors(['error' => 'Email atau password tidak benar']);
@@ -58,8 +60,6 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
-        request()->session()->invalidate();
-        request()->session()->regenerateToken();
 
         return Redirect::back();
     }

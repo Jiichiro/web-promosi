@@ -1,139 +1,178 @@
-import React from 'react';
-import { Line, Bar } from 'react-chartjs-2';
-import { 
-  Chart as ChartJS, 
-  CategoryScale, 
-  LinearScale, 
-  PointElement, 
-  LineElement, 
-  BarElement, 
-  Title, 
-  Tooltip, 
-  Legend 
-} from 'chart.js';
+import { Head } from "@inertiajs/react";
+import Navbar from "@/components/Navbar";
+import React from "react";
+import { Bar, Pie } from "recharts";
+import {
+    BarChart,
+    Bar as RechartsBar,
+    XAxis,
+    YAxis,
+    Tooltip,
+    Legend,
+    PieChart,
+    Pie as RechartsPie,
+    Cell,
+} from "recharts";
 
-// Registrasi komponen Chart.js
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+const SalesDashboard = ({ orders, lastOrders, user, login }) => {
+    // Aggregate data for charts
+    const categoryAggregate = orders.reduce((acc, order) => {
+        const existing = acc.find((item) => item.category === order.category);
+        if (existing) {
+            existing.total += order.price;
+        } else {
+            acc.push({
+                category: order.category,
+                total: order.price,
+            });
+        }
+        return acc;
+    }, []);
 
-const SalesDashboard = ({ 
-  products = [], 
-  salesData = []
-}) => {
-  // Transformasi data produk untuk chart
-  const processProductData = () => {
-    // Kelompokkan penjualan berdasarkan kategori
-    const categorySales = products.reduce((acc, product) => {
-      const category = product.category;
-      acc[category] = (acc[category] || 0) + product.price;
-      return acc;
-    }, {});
+    const variantAggregate = orders.reduce((acc, order) => {
+        const existing = acc.find((item) => item.variant === order.variant);
+        if (existing) {
+            existing.total += order.price;
+        } else {
+            acc.push({
+                variant: order.variant,
+                total: order.price,
+            });
+        }
+        return acc;
+    }, []);
 
-    return {
-      labels: Object.keys(categorySales),
-      datasets: [{
-        label: 'Penjualan per Kategori',
-        data: Object.values(categorySales),
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.6)',
-          'rgba(54, 162, 235, 0.6)',
-          'rgba(255, 206, 86, 0.6)',
-          'rgba(75, 192, 192, 0.6)',
-          'rgba(153, 102, 255, 0.6)'
-        ]
-      }]
-    };
-  };
+    // Color palette
+    const COLORS = [
+        "#0088FE",
+        "#00C49F",
+        "#FFBB28",
+        "#FF8042",
+        "#8884D8",
+        "#FF6384",
+    ];
 
-  // Transformasi data penjualan untuk line chart
-  const processSalesData = () => {
-    return {
-      labels: salesData.map(data => data.month),
-      datasets: [{
-        label: 'Penjualan Bulanan',
-        data: salesData.map(data => data.total),
-        borderColor: 'rgb(75, 192, 192)',
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-      }]
-    };
-  };
+    return (
+        <>
+            <Head title="Statistik" />
+            <div className="bg-slate-950 text-white">
+                <Navbar user={user} login={login} />
+                <div className="p-6 min-h-screen">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {/* Category Sales Chart */}
+                        <div className="bg-slate-800 rounded-lg shadow-lg p-4">
+                            <h2 className="text-xl font-semibold mb-4 text-white">
+                                Sales by Category
+                            </h2>
+                            <BarChart
+                                width={500}
+                                height={300}
+                                data={categoryAggregate}
+                            >
+                                <XAxis dataKey="category" stroke="#ffffff" />
+                                <YAxis stroke="#ffffff" />
+                                <Tooltip
+                                    contentStyle={{
+                                        backgroundColor: "#333",
+                                        color: "#fff",
+                                    }}
+                                />
+                                <Legend wrapperStyle={{ color: "#fff" }} />
+                                <RechartsBar dataKey="total" fill="#00C49F" />
+                            </BarChart>
+                        </div>
 
-  // Hitung total penjualan
-  const totalSales = products.reduce((sum, product) => sum + product.price, 0);
+                        {/* Variant Sales Pie Chart */}
+                        <div className="bg-slate-800 rounded-lg shadow-lg p-4">
+                            <h2 className="text-xl font-semibold mb-4 text-white">
+                                Sales by Variant
+                            </h2>
+                            <PieChart width={500} height={300}>
+                                <RechartsPie
+                                    data={variantAggregate}
+                                    dataKey="total"
+                                    nameKey="variant"
+                                    cx="50%"
+                                    cy="50%"
+                                    outerRadius={100}
+                                >
+                                    {variantAggregate.map((entry, index) => (
+                                        <Cell
+                                            key={`cell-${index}`}
+                                            fill={COLORS[index % COLORS.length]}
+                                        />
+                                    ))}
+                                </RechartsPie>
+                                <Tooltip
+                                    contentStyle={{
+                                        backgroundColor: "#333",
+                                        color: "#fff",
+                                    }}
+                                />
+                                <Legend wrapperStyle={{ color: "#fff" }} />
+                            </PieChart>
+                        </div>
+                    </div>
 
-  // Temukan produk terlaris
-  const bestSellingProduct = products.reduce((best, current) => 
-    (current.price > best.price) ? current : best
-  , products[0]);
-
-  // Opsi chart
-  const getChartOptions = (title) => ({
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: title,
-      }
-    }
-  });
-
-  return (
-    <div className="container mx-auto p-6 bg-gray-100 font-sans">
-      <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">
-        Dasbor Statistik Penjualan
-      </h1>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white shadow-lg rounded-lg p-6">
-          <Line 
-            data={processSalesData()} 
-            options={getChartOptions('Statistik Penjualan Bulanan')} 
-          />
-        </div>
-        
-        <div className="bg-white shadow-lg rounded-lg p-6">
-          <Bar 
-            data={processProductData()} 
-            options={getChartOptions('Penjualan per Kategori')} 
-          />
-        </div>
-      </div>
-
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-blue-100 p-4 rounded-lg shadow">
-          <h2 className="text-xl font-semibold">Total Penjualan</h2>
-          <p className="text-2xl font-bold text-blue-600">
-            Rp {totalSales.toLocaleString()}
-          </p>
-        </div>
-        
-        <div className="bg-green-100 p-4 rounded-lg shadow">
-          <h2 className="text-xl font-semibold">Produk Terlaris</h2>
-          <p className="text-2xl font-bold text-green-600">
-            {bestSellingProduct?.name || 'Tidak ada data'}
-          </p>
-        </div>
-        
-        <div className="bg-purple-100 p-4 rounded-lg shadow">
-          <h2 className="text-xl font-semibold">Kategori Utama</h2>
-          <p className="text-2xl font-bold text-purple-600">
-            {bestSellingProduct?.category || 'Tidak ada data'}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
+                    {/* Last Orders Table */}
+                    <div className="bg-slate-800 rounded-lg shadow-lg p-4 mt-6">
+                        <h2 className="text-xl font-semibold mb-4 text-white">
+                            Last 10 Orders
+                        </h2>
+                        <div className="overflow-x-auto">
+                            <table className="w-full">
+                                <thead>
+                                    <tr className="bg-slate-900 border-b border-slate-700">
+                                        <th className="p-3 text-left text-gray-300">
+                                            Name
+                                        </th>
+                                        <th className="p-3 text-left text-gray-300">
+                                            Category
+                                        </th>
+                                        <th className="p-3 text-left text-gray-300">
+                                            Variant
+                                        </th>
+                                        <th className="p-3 text-right text-gray-300">
+                                            Price
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {lastOrders
+                                        .slice(0, 10)
+                                        .map((order, index) => (
+                                            <tr
+                                                key={index}
+                                                className="border-b border-slate-700 hover:bg-slate-900"
+                                            >
+                                                <td className="p-3 text-gray-300">
+                                                    {order.name}
+                                                </td>
+                                                <td className="p-3 text-gray-300">
+                                                    {order.category}
+                                                </td>
+                                                <td className="p-3 text-gray-300">
+                                                    {order.variant}
+                                                </td>
+                                                <td className="p-3 text-right text-gray-300">
+                                                    {new Intl.NumberFormat(
+                                                        "id-ID",
+                                                        {
+                                                            style: "currency",
+                                                            currency: "IDR",
+                                                        }
+                                                    ).format(order.price)}
+                                                </td>
+                                            </tr>
+                                        ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
 };
 
 export default SalesDashboard;
