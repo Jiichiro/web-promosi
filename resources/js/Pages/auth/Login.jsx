@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Eye, EyeOff, Mail, Lock, Sun, Moon } from 'lucide-react';
+import { Eye, EyeOff, Mail, Lock} from 'lucide-react';
 import { Head, Link, useForm } from '@inertiajs/react';
 
 const Login = () => {

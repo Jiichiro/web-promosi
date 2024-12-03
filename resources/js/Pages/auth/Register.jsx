@@ -16,7 +16,8 @@ const Register = () => {
   function submitHandler(e) {
     e.preventDefault()
     post('/register')
-
+    console.log('clicked');
+    
   }
 
   const fadeIn = {

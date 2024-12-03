@@ -55,7 +55,7 @@ const ProductPage = ({ login, user }) => {
           link: 'gopay'
         },
         {
-          title: "dana",
+          title: "Dana",
           description: "Layanan yang banyak digunakan oleh orang karena flesibilitasnya",
           image: "dana.png",
           link: 'dana'

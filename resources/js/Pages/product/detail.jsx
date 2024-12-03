@@ -36,10 +36,14 @@ const Detail = ({ url, name, login, user }) => {
                             className="rounded-lg w-96 mb-4"
                         />
                         <p className="text-gray-600">
-                            This is our featured product that provides excellent
-                            value for your needs. With state-of-the-art design
-                            and cutting-edge technology, it is perfect for those
-                            who demand the best.
+                            Untuk membeli anda hanya perlu:
+                            <ol className="list-decimal">
+                                <li>memilih varian yang adan inginkan</li>
+                                <li>klik "lanjut ke whatsapp"</li>
+                                <li>kirim pesan anda ke admin</li>
+                                <li>tunggu waktu untuk admin memproses</li>
+                            </ol>
+                            denganbegitu anda selesai melakukan pembelian
                         </p>
                     </div>
                     {/* Right section: Scrollable product list */}
@@ -78,7 +82,7 @@ const Detail = ({ url, name, login, user }) => {
                         href={`https://api.whatsapp.com/send?phone=6282335502468&text=${selectedProduct}`}
                         className="bg-purple-600 text-white py-2 px-6 rounded-lg"
                     >
-                        Lanjut ke Wangsaff
+                        Lanjut ke Whatsapp
                     </a>
                 </div>
             </div>

@@ -9,54 +9,58 @@ use Illuminate\Support\Facades\Redirect;
 
 class AuthController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     */
     public function login()
     {
-        if (Auth::check()) return Redirect::back();
+        if (Auth::check()) return redirect()->route('home');
         return inertia('auth/Login');
     }
 
-    public function register() {
-        if (Auth::check()) return Redirect::back();
+    public function register()
+    {
+        if (Auth::check()) return redirect()->route('home');
         return inertia('auth/Register');
     }
 
-    public function verify(Request $request) {
+    public function verify(Request $request)
+    {
         $validation = $request->validate([
-            "email"    => "required",
+            "email"    => "required|email",
             "password" => "required",
         ]);
 
         if (Auth::attempt($validation)) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            return redirect()->intended('/'); 
         }
 
-        return Redirect::back()->withErrors(['error'=>'email atau password tidak benar']);
+        return Redirect::back()->withErrors(['error' => 'Email atau password tidak benar']);
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $validation = $request->validate([
             'name'     => "required",
             'email'    => "required",
             'password' => "required",
-            'level'    => "nullable",  
         ]);
-        $validation['password'] = password_hash($validation['password'], PASSWORD_BCRYPT);
+
+        $validation['password'] = bcrypt($validation['password']);
         $validation['level'] = 'member';
 
         try {
             User::create($validation);
             return redirect('/login');
         } catch (\Throwable $th) {
-            return Redirect::back()->withErrors(['error'=>'username atau email sudah digunakan']);
+            return Redirect::back()->withErrors(['error' => 'Terjadi kesalahan saat menyimpan data.']);
         }
     }
 
-    public function logout() {
+    public function logout()
+    {
         Auth::logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+
         return Redirect::back();
     }
 }

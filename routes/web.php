@@ -7,7 +7,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [DashboardController::class, 'dash']);
+Route::get('/', [DashboardController::class, 'dash'])->name('home');
 Route::get('/about', [AboutController::class, 'about']);
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
