@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\StatsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'dash'])->name('home');
@@ -22,4 +23,4 @@ Route::get('/cart', [CartController::class, 'index']);
 
 Route::resource('product', ProductController::class);
 
-Route::inertia('/stats', 'Mt');
+Route::get('/stats', [StatsController::class, 'index']);

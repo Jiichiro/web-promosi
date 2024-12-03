@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
@@ -32,7 +35,16 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $validation = $request->validate([
+            'name' => 'required',
+            'category' => 'required',
+            'variant' => 'required',
+            'price' => 'required',
+        ]);
+        // dd($validation);
+        Order::create($validation);
+        return Redirect::back();
     }
 
     /**

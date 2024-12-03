@@ -112,37 +112,35 @@ const ProductPage = ({ login, user }) => {
 
   return (
     <>
-      <Head>
-        <title>Produk</title>
-      </Head>
-      <div className="product-page bg-blue-950">
+      <Head title="Our Product" />
+      <div className="product-page bg-gray-900 text-white">
         <Navbar login={login} user={user} />
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold text-center text-blue-600 mb-8">
+        <div className="container mx-auto px-4 py-12">
+          <h1 className="text-4xl font-bold text-center text-blue-600 mb-12">
             Layanan Kami
           </h1>
           {categories.map((category, index) => (
-            <section key={index} className="category-section mb-10">
-              <h2 className="text-2xl font-semibold text-white mb-4 border-b-2 border-blue-400 pb-2">
+            <section key={index} className="category-section mb-16">
+              <h2 className="text-2xl font-semibold text-white mb-6 border-b-2 border-blue-400 pb-2">
                 {category.title}
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-8">
                 {category.products.map((product, idx) => (
                   <Link
                     href={`/product/${product.link}`}
                     key={idx}
-                    className="product-card bg-white shadow-md rounded-lg overflow-hidden"
+                    className="product-card bg-gray-800 shadow-md rounded-lg overflow-hidden hover:bg-gray-700 transition-colors"
                   >
                     <img
                       src={`/images/${product.image}`}
                       alt={product.title}
-                      className="w-full h-40 object-cover"
+                      className="w-full h-48 object-cover"
                     />
                     <div className="p-4">
-                      <h3 className="text-xl font-bold text-gray-800">
+                      <h3 className="text-xl font-bold text-white">
                         {product.title}
                       </h3>
-                      <p className="text-gray-600 mt-2">{product.description}</p>
+                      <p className="text-gray-400 mt-2">{product.description}</p>
                     </div>
                   </Link>
                 ))}
