@@ -66,7 +66,7 @@ const Detail = ({ url, name, login, user }) => {
                                         <p className="text-2xl font-bold">
                                             <FormatRupiah value={product.price} />
                                         </p>
-                                        <p className=" italic bold text-sm text-gray-600">/ Transaksi</p>
+                                        <p className=" italic bold text-sm text-gray-600">{(url == 'photo' || url == 'video') ? '/ Transakdi' : 'Mulai dari*'}</p>
                                     </div>
                                 </div>
                             ))}

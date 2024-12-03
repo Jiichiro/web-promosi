@@ -753,7 +753,43 @@ class DatabaseSeeder extends Seeder
                 'category' => 'topup_games',
                 'quantity' => 400000,
                 'price' => 415000
-            ]
+            ],
+            [
+                'name' => 'word',
+                'category' => 'document',
+                'quantity' => 'Buat baru',
+                'price' => 3000
+            ],
+            [
+                'name' => 'word',
+                'category' => 'document',
+                'quantity' => 'Daftar Isi',
+                'price' => 3000
+            ],
+            [
+                'name' => 'word',
+                'category' => 'document',
+                'quantity' => 'Daftar Isi',
+                'price' => 3000
+            ],
+            [
+                'name' => 'pdf',
+                'category' => 'document',
+                'quantity' => 'PDF',
+                'price' => 500
+            ],
+            [
+                'name' => 'photo',
+                'category' => 'foto_video',
+                'quantity' => 'Foto',
+                'price' => 5000
+            ],
+            [
+                'name' => 'video',
+                'category' => 'foto_video',
+                'quantity' => 'Video',
+                'price' => 10000
+            ],
         ];
         foreach ($product as $produk) {
             Product::create($produk);

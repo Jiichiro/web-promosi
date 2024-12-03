@@ -36,7 +36,7 @@ const Navbar = ({ login, user }) => {
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                 >
-                    <Link href="/product" className="cursor-pointer">Produk</Link>
+                    <Link href="/product" className="cursor-pointer">Layanan</Link>
                     {isDropdownOpen && (
                         <motion.div
                             className="absolute -left-96 right-0 mx-auto w-max mt-0 bg-white text-black rounded shadow-lg"
