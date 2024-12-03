@@ -24,5 +24,11 @@
         "SESSION_DRIVER": "cookie",
         "VIEW_COMPILED_PATH": "/tmp"
     },
-    "outputDirectory": "public"
+    "outputDirectory": "public",
+    "builds": [
+    {
+      "src": "index.php",
+      "use": "@vercel/php"
+    }
+  ]
 }
