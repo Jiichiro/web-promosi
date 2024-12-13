@@ -1,6 +1,6 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://github.com/Jiichiro/web-promosi/blob/551bccb1e30e4bed84cde622bc480b0008a1bcad/public/images/logo.png" width="200" alt="Laravel Logo"></a></p>
 
-## About QuicsX
+## Tentang QuicsX
 
 QuicsX hadir untuk memberikan solusi digital terlengkap untuk berbagai kebutuhan Anda. Dengan pengalaman dan dedikasi tim kami, kami berkomitmen untuk memberikan layanan terbaik dan hasil yang memuaskan.
 
@@ -18,4 +18,4 @@ QuicsX hadir untuk memberikan solusi digital terlengkap untuk berbagai kebutuhan
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Web Kami berada dibawah lisensi [MIT](https://opensource.org/licenses/MIT).
