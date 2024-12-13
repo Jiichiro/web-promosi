@@ -13,7 +13,7 @@ QuicsX hadir untuk memberikan solusi digital terlengkap untuk berbagai kebutuhan
 
 ## Proyek dari masing-masing anggota kelompok
 
-- **[Lendra](https://github.com/Lendra-arch/1231423-php)**
+- **[Lendra](https://github.com/Lendra-arch/Store-Website-Project)**
 - **[Andy](https://github.com/Jiichiro/web-promosi)**
 
 ## License
