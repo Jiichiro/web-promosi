@@ -16,6 +16,6 @@ QuicsX hadir untuk memberikan solusi digital terlengkap untuk berbagai kebutuhan
 - **[Lendra](https://github.com/Lendra-arch/Store-Website-Project)**
 - **[Andy](https://github.com/Jiichiro/web-promosi)**
 
-## License
+## Lisensi
 
 Web Kami berada dibawah lisensi [MIT](https://opensource.org/licenses/MIT).
